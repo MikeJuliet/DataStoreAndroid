@@ -3,7 +3,6 @@ package com.plcoding.datastoreandroid
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.datastore.core.DataStore
-import androidx.datastore.createDataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.preferencesKey
@@ -29,16 +28,16 @@ class MainActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             lifecycleScope.launch {
                 save(
-                        binding.etSaveKey.text.toString(),
-                        binding.etSaveValue.text.toString()
+                        binding.edtSaveKey.text.toString(),
+                        binding.edtSaveValue.text.toString()
                 )
             }
         }
 
         binding.btnRead.setOnClickListener {
             lifecycleScope.launch {
-                val value = read(binding.etReadkey.text.toString())
-                binding.tvReadValue.text = value ?: "No value found"
+                val value = read(binding.edtReadKey.text.toString())
+                binding.txtReadValue.text = value ?: "No value found"
             }
         }
     }
